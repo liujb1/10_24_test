@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="contact-maven:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>contact-maven</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="contact-maven-1.0.war">
+      <element id="artifact" artifact-name="contact-maven:war exploded" />
+    </root>
+  </artifact>
+</component>

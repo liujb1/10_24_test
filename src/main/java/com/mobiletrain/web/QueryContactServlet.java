@@ -1,8 +1,10 @@
 package com.mobiletrain.web;
 
+import com.mobiletrain.config.SpringConfig;
 import com.mobiletrain.domain.Contact;
 import com.mobiletrain.service.ContactService;
 import com.mobiletrain.service.impl.ContactServiceImpl;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -16,7 +18,12 @@ import java.util.List;
 
 @WebServlet("/query_contact")
 public class QueryContactServlet extends HttpServlet {
-    private ContactService service = new ContactServiceImpl();
+    private ContactService service ;
+    public  void init(){
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
+        ContactService contactService = context.getBean("contactService",ContactService.class);
+        service=contactService;
+    }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 

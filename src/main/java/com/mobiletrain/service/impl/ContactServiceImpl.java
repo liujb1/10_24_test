@@ -4,11 +4,16 @@ import com.mobiletrain.dao.ContactDAO;
 import com.mobiletrain.dao.impl.ContactDAOImpl;
 import com.mobiletrain.domain.Contact;
 import com.mobiletrain.service.ContactService;
+import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.List;
-
+@Repository("contactService")
+@Service
 public class ContactServiceImpl implements ContactService {
-    private ContactDAO dao = new ContactDAOImpl();
+    @Resource(name="contactDAO")
+    private ContactDAO dao ;
 
     @Override
     public List<Contact> queryAll() {
